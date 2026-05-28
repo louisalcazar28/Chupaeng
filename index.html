@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHUPAENG × STAKE</title>
+
+  <meta name="description" content="Official CHUPAENG community landing page for streams, rewards, giveaways, and Stake promo code.">
+  <meta property="og:title" content="CHUPAENG × STAKE">
+  <meta property="og:description" content="Use code CHUPAENG for community rewards and stream updates.">
+  <meta property="og:type" content="website">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #05070f;
+      --card: rgba(255,255,255,.08);
+      --line: rgba(255,255,255,.14);
+      --text: #fff;
+      --muted: #aab3c8;
+      --green: #49ff9a;
+      --darkgreen: #031006;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(73,255,154,.24), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(0,120,255,.18), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(73,255,154,.12), transparent 36%),
+        linear-gradient(135deg, #05070f, #07101f 55%, #05070f);
+      z-index: -3;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+      z-index: -2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 16px;
+      z-index: 50;
+      margin-top: 16px;
+      padding: 8px 24px 8px 6px;
+      height: 86px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(5,7,15,.72);
+      backdrop-filter: blur(18px);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin-left: -28px;
+    }
+
+    .nav-avatar {
+      height: 180px;
+      width: auto;
+      object-fit: contain;
+      transform: translateY(2px);
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+
+    .nav-btn {
+      margin-left: 24px;
+      padding: 12px 18px;
+      background: var(--green);
+      color: var(--darkgreen);
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 760px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 48px;
+      align-items: center;
+      padding: 92px 0 60px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(56px, 9vw, 118px);
+      line-height: .88;
+      letter-spacing: -.08em;
+      margin-bottom: 26px;
+    }
+
+    h1 span {
+      color: var(--green);
+      text-shadow: 0 0 50px rgba(73,255,154,.45);
+    }
+
+    .hero-text {
+      max-width: 660px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .code-box {
+      max-width: 540px;
+      padding: 18px;
+      border: 1px solid rgba(73,255,154,.35);
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(73,255,154,.15), rgba(255,255,255,.06));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 25px 90px rgba(0,0,0,.35);
+      margin-bottom: 20px;
+    }
+
+    .code-box p {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .code-box strong {
+      font-size: 38px;
+      letter-spacing: .12em;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 900;
+    }
+
+    .copy-btn {
+      padding: 15px 22px;
+      border-radius: 18px;
+      background: var(--green);
+      color: var(--darkgreen);
+      transition: .2s;
+    }
+
+    .copy-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(73,255,154,.55);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 17px 26px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: .2s;
+    }
+
+    .primary {
+      background: var(--green);
+      color: var(--darkgreen);
+    }
+
+    .secondary {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(73,255,154,.16);
+    }
+
+    .age-warning {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .trust {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .trust span {
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+    }
+
+    .hero-panel {
+      position: relative;
+      padding: 30px;
+      min-height: 560px;
+      border-radius: 38px;
+      background: linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,.045));
+      border: 1px solid var(--line);
+      box-shadow: 0 40px 120px rgba(0,0,0,.4);
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -80px;
+      top: -80px;
+      background: var(--green);
+      filter: blur(80px);
+      opacity: .22;
+    }
+
+    .live-pill,
+    .live-now {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 15px;
+      border-radius: 999px;
+      background: rgba(73,255,154,.14);
+      border: 1px solid rgba(73,255,154,.35);
+      color: var(--green);
+      font-weight: 900;
+      font-size: 13px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .live-pill {
+      margin-bottom: 80px;
+    }
+
+    .live-pill i,
+    .live-now i {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 20px var(--green);
+    }
+
+    .hero-panel h2 {
+      font-size: clamp(34px, 4vw, 48px);
+      letter-spacing: -.05em;
+      line-height: 1;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-panel p {
+      color: var(--muted);
+      line-height: 1.7;
+      position: relative;
+      z-index: 2;
+    }
+
+    .leaderboard {
+      margin-top: 34px;
+      display: grid;
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .leaderboard div {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.07);
+    }
+
+    .leaderboard b {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--darkgreen);
+    }
+
+    .leaderboard em {
+      color: var(--green);
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-head.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: clamp(38px, 5vw, 70px);
+      line-height: .96;
+      letter-spacing: -.06em;
+      margin-bottom: 16px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    .stats,
+    .steps,
+    .winners-grid,
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 28px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(73,255,154,.45);
+      box-shadow: 0 28px 70px rgba(0,0,0,.32);
+    }
+
+    .stat h3 {
+      font-size: 50px;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .step-number {
+      color: var(--green);
+      font-weight: 900;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .winner-prize {
+      color: var(--green);
+      font-size: 30px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .countdown-box {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .count-label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      margin-bottom: 18px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .countdown div {
+      min-width: 85px;
+      padding: 18px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: var(--card);
+    }
+
+    .countdown span {
+      display: block;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    .countdown small {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .lb-card {
+      padding: 28px;
+      border-radius: 24px;
+      text-align: center;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--line);
+      transition: .2s;
+    }
+
+    .lb-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(73,255,154,.45);
+      box-shadow: 0 28px 70px rgba(0,0,0,.32);
+    }
+
+    .lb-card.first {
+      transform: translateY(-16px);
+      border-color: rgba(73,255,154,.55);
+      box-shadow: 0 20px 70px rgba(73,255,154,.12);
+    }
+
+    .place {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: var(--green);
+      background: rgba(73,255,154,.12);
+      border: 1px solid rgba(73,255,154,.35);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .lb-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .lb-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .lb-card strong {
+      display: block;
+      color: var(--green);
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+
+    .lb-card small {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .lb-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+    }
+
+    .lb-table th,
+    .lb-table td {
+      padding: 18px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .lb-table th {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .lb-table td {
+      font-weight: 800;
+    }
+
+    .prize {
+      color: var(--green);
+    }
+
+    .stream-top {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .stream-box {
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #0b0f1a;
+      box-shadow: 0 35px 100px rgba(0,0,0,.35);
+    }
+
+    iframe {
+      width: 100%;
+      height: 540px;
+      border: 0;
+      display: block;
+    }
+
+    .stream-fallback {
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    .socials {
+      display: grid;
+      grid-template-columns: repeat(6,1fr);
+      gap: 14px;
+    }
+
+    .socials a {
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      text-align: center;
+      font-weight: 900;
+      transition: .2s;
+    }
+
+    .socials a:hover {
+      background: var(--green);
+      color: var(--darkgreen);
+      transform: translateY(-4px);
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+      max-width: 860px;
+      margin: auto;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    details p {
+      margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 38px 0 100px;
+      color: var(--muted);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    footer h3,
+    footer h4 {
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      line-height: 1.7;
+    }
+
+    .floating-code {
+      display: none;
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 200;
+      padding: 16px 20px;
+      border-radius: 999px;
+      background: var(--green);
+      color: var(--darkgreen);
+      text-align: center;
+      font-weight: 900;
+      box-shadow: 0 18px 60px rgba(73,255,154,.35);
+    }
+
+    #toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      background: var(--green);
+      color: var(--darkgreen);
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: .25s;
+      z-index: 300;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: .65s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+.promos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.promo-card {
+  overflow: hidden;
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.06);
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+}
+
+.promo-img {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.promo-badge {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 9px 13px;
+  border-radius: 10px;
+  background: #ffd400;
+  color: #080808;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.promo-content {
+  padding: 28px;
+}
+
+.promo-content h3 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.promo-content p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.promo-content strong {
+  color: var(--green);
+}
+
+.promo-btn {
+  width: 100%;
+  justify-content: center;
+  border: 1px solid rgba(73,255,154,.35);
+  background: transparent;
+  color: var(--green);
+}
+    @media (max-width: 920px) {
+      header {
+        height: auto;
+        min-height: 86px;
+        border-radius: 24px;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+.promos-grid {
+  grid-template-columns: 1fr;
+}
+      nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        gap: 16px;
+        padding-bottom: 4px;
+      }
+
+      .nav-avatar {
+        height: 140px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 70px;
+      }
+
+      .stats,
+      .steps,
+      .features,
+      .socials,
+      footer,
+      .top3,
+      .winners-grid,
+      .rules-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lb-card.first {
+        transform: none;
+      }
+
+      iframe {
+        height: 360px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .container {
+        width: min(100% - 22px, 1180px);
+      }
+
+      header {
+        padding: 8px 14px;
+      }
+
+      .logo {
+        margin-left: -18px;
+      }
+
+      .nav-avatar {
+        height: 110px;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .code-box {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .countdown {
+        gap: 8px;
+      }
+
+      .countdown div {
+        min-width: 65px;
+      }
+
+      .countdown span {
+        font-size: 32px;
+      }
+
+      h1 {
+        letter-spacing: -.06em;
+      }
+
+      .lb-table {
+        font-size: 13px;
+      }
+
+      .lb-table th,
+      .lb-table td {
+        padding: 12px;
+      }
+
+      .floating-code {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <a href="#top" class="logo">
+        <img class="nav-avatar" src="./chupaeng-nav-logo.png" alt="">
+      </a>
+
+<nav>
+  <a href="#stream">Stream</a>
+  <a href="#promos">Promos</a>
+  <a href="#rewards">Rewards</a>
+  <a href="#leaderboard">Leaderboard</a>
+  <a href="#winners">Winners</a>
+  <a href="#rules">Rules</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+      <a class="nav-btn" href="https://stake.com/?c=chupaeng" target="_blank" rel="noopener noreferrer">Join Now</a>
+    </header>
+
+    <main id="top">
+
+      <section class="hero">
+        <div class="reveal">
+          <p class="eyebrow">CHUPAENG × STAKE</p>
+          <h1>Use code <span>CHUPAENG</span></h1>
+
+          <p class="hero-text">
+            Your official CHUPAENG hub for community rewards, giveaways, stream updates,
+            leaderboard events, and the Stake promo code.
+          </p>
+
+          <div class="code-box">
+            <div>
+              <p>Official Promo Code</p>
+              <strong id="promoCode">CHUPAENG</strong>
+            </div>
+            <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="https://stake.com/?c=chupaeng" target="_blank" rel="noopener noreferrer" onclick="trackClick('Stake Signup')">
+              Claim Rewards
+            </a>
+            <a class="btn secondary" href="https://kick.com/CHUPAENG" target="_blank" rel="noopener noreferrer" onclick="trackClick('Kick Stream')">
+              Watch Stream
+            </a>
+          </div>
+
+          <p class="age-warning">
+            18+ only. Play responsibly. Terms, eligibility, and regional restrictions may apply.
+          </p>
+
+          <div class="trust">
+            <span>✓ Creator code</span>
+            <span>✓ Giveaways</span>
+            <span>✓ Live events</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal">
+          <div>
+            <div class="live-pill"><i></i> LIVE COMMUNITY</div>
+            <h2>Built for viewers, rewards, and daily stream hype.</h2>
+            <p>
+              Keep everything in one place: promo code, stream link, social platforms,
+              rewards, FAQ, community updates, and giveaway rules.
+            </p>
+          </div>
+
+          <div class="leaderboard">
+            <div>
+              <b>1</b>
+              <span>Top Supporter</span>
+              <em>₱15K</em>
+            </div>
+            <div>
+              <b>2</b>
+              <span>Community MVP</span>
+              <em>₱8K</em>
+            </div>
+            <div>
+              <b>3</b>
+              <span>Lucky Viewer</span>
+              <em>₱5K</em>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="stream">
+        <div class="section-head center reveal">
+          <p class="eyebrow">LIVE STREAM</p>
+          <h2>Watch CHUPAENG live</h2>
+          <p>Embedded Kick player. If the embed does not load, use the button below to open the stream directly.</p>
+        </div>
+
+        <div class="stream-top reveal">
+          <span class="live-now"><i></i> LIVE ON KICK</span>
+        </div>
+
+        <div class="stream-box reveal">
+          <iframe
+            src="https://player.kick.com/chupaeng"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="stream-fallback reveal">
+          <a class="btn primary" href="https://kick.com/CHUPAENG" target="_blank" rel="noopener noreferrer">
+            Open CHUPAENG on Kick
+          </a>
+        </div>
+      </section>
+
+      <section id="rewards">
+        <div class="section-head center reveal">
+          <p class="eyebrow">REWARDS</p>
+          <h2>Exclusive community perks</h2>
+          <p>Use the official code to connect with CHUPAENG rewards, streams, and updates.</p>
+        </div>
+
+        <div class="stats">
+          <article class="card stat reveal">
+            <h3>₱28,500</h3>
+            <p>Prize pool for community events, stream promos, and giveaways.</p>
+          </article>
+
+          <article class="card stat reveal">
+            <h3>3.5%</h3>
+            <p>Rakeback reward connected to the creator code.</p>
+          </article>
+
+          <article class="card stat reveal">
+            <h3>$7</h3>
+            <p>Reload bonus for eligible users who use the official code.</p>
+          </article>
+        </div>
+      </section>
+      
+<section id="promos">
+  <div class="section-head center reveal">
+    <p class="eyebrow">EXCLUSIVE PROMOTIONS</p>
+    <h2>Current offers</h2>
+    <p>Featured reloads, VIP rewards, and community bonus offers.</p>
+  </div>
+
+  <div class="promos-grid">
+    <article class="promo-card reveal">
+      <div class="promo-img" style="background-image:url('https://images.unsplash.com/photo-1511193311914-0346f16efe90?auto=format&fit=crop&w=900&q=80');">
+        <span class="promo-badge">$21 RELOAD</span>
+      </div>
+      <div class="promo-content">
+        <h3>Receive Rakeback</h3>
+        <p>Get <strong>$21 reload</strong> and earn up to <strong>3.5%</strong> rakeback when you play.</p>
+        <a class="btn promo-btn" href="https://stake.com/?c=chupaeng" target="_blank" rel="noopener noreferrer">Claim Offer →</a>
+      </div>
+    </article>
+
+    <article class="promo-card reveal">
+      <div class="promo-img" style="background-image:url('https://images.unsplash.com/photo-1606166325683-e6deb697d301?auto=format&fit=crop&w=900&q=80');">
+        <span class="promo-badge" style="background:var(--green);">VIP EXCLUSIVE</span>
+      </div>
+      <div class="promo-content">
+        <h3>VIP Rewards</h3>
+        <p>Exclusive bonuses for loyal players and active CHUPAENG community members.</p>
+        <a class="btn promo-btn" href="https://stake.com/?c=chupaeng" target="_blank" rel="noopener noreferrer">Claim Offer →</a>
+      </div>
+    </article>
+
+    <article class="promo-card reveal">
+      <div class="promo-img" style="background-image:url('https://images.unsplash.com/photo-1596838132731-3301c3fd4317?auto=format&fit=crop&w=900&q=80');">
+        <span class="promo-badge">BONUS</span>
+      </div>
+      <div class="promo-content">
+        <h3>Mega Promotion Alert</h3>
+        <p>Use code <strong>CHUPAENG</strong> and check the latest active community bonus offers.</p>
+        <a class="btn promo-btn" href="https://stake.com/?c=chupaeng" target="_blank" rel="noopener noreferrer">Claim Offer →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+      <section id="leaderboard">
+        <div class="section-head center reveal">
+          <p class="eyebrow">COMPETITION</p>
+          <h2>Leaderboard</h2>
+          <p>Current giveaway standings and competition timer.</p>
+        </div>
+
+        <div class="countdown-box reveal">
+          <p class="count-label">COMPETITION ENDS IN:</p>
+
+          <div class="countdown">
+            <div><span id="days">00</span><small>DAYS</small></div>
+            <div><span id="hours">00</span><small>HOURS</small></div>
+            <div><span id="minutes">00</span><small>MINUTES</small></div>
+            <div><span id="seconds">00</span><small>SECONDS</small></div>
+          </div>
+        </div>
+
+        <div class="top3 reveal">
+          <div class="lb-card second">
+            <span class="place">2ND PLACE</span>
+            <h3>******030</h3>
+            <p>$587.52 wagered</p>
+            <strong>₱14,000</strong>
+            <small>PRIZE</small>
+          </div>
+
+          <div class="lb-card first">
+            <span class="place">★ 1ST PLACE</span>
+            <h3>******825</h3>
+            <p>$771.12 wagered</p>
+            <strong>₱20,000</strong>
+            <small>PRIZE</small>
+          </div>
+
+          <div class="lb-card third">
+            <span class="place">3RD PLACE</span>
+            <h3>******221</h3>
+            <p>$274.24 wagered</p>
+            <strong>₱7,500</strong>
+            <small>PRIZE</small>
+          </div>
+        </div>
+
+        <table class="lb-table reveal">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Wager</th>
+              <th>Prize</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>#04</td>
+              <td>******pit</td>
+              <td>$71.73</td>
+              <td class="prize">₱2,000</td>
+            </tr>
+
+            <tr>
+              <td>#05</td>
+              <td>******221</td>
+              <td>$66.10</td>
+              <td class="prize">₱1,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="winners">
+        <div class="section-head center reveal">
+          <p class="eyebrow">RECENT WINNERS</p>
+          <h2>Community winners</h2>
+          <p>Recent giveaway winners and reward updates from the CHUPAENG community.</p>
+        </div>
+
+        <div class="winners-grid">
+          <article class="card reveal">
+            <div class="winner-prize">₱5,000</div>
+            <h3>******mar</h3>
+            <p>Lucky viewer giveaway winner from the latest stream event.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="winner-prize">₱3,000</div>
+            <h3>******ken</h3>
+            <p>Community supporter reward for participating in stream activities.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="winner-prize">₱1,500</div>
+            <h3>******jay</h3>
+            <p>Random chat giveaway winner during the live Kick stream.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="rules">
+        <div class="section-head center reveal">
+          <p class="eyebrow">GIVEAWAY RULES</p>
+          <h2>How rewards work</h2>
+          <p>Keep the rules clear so viewers know how to qualify for events and prizes.</p>
+        </div>
+
+        <div class="rules-grid">
+          <article class="card reveal">
+            <span class="step-number">01</span>
+            <h3>Use the code</h3>
+            <p>Use promo code <strong>CHUPAENG</strong> to join eligible community promos.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="step-number">02</span>
+            <h3>Follow the stream</h3>
+            <p>Watch Kick streams for giveaway announcements, winner updates, and event rules.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="step-number">03</span>
+            <h3>Play responsibly</h3>
+            <p>Must be 18+. Terms, location rules, and eligibility requirements may apply.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="steps">
+        <div class="section-head reveal">
+          <p class="eyebrow">HOW TO START</p>
+          <h2>Claim in 3 steps</h2>
+          <p>Simple flow for viewers coming from TikTok, Facebook, Kick, or YouTube.</p>
+        </div>
+
+        <div class="steps">
+          <article class="card reveal">
+            <span class="step-number">01</span>
+            <h3>Create account</h3>
+            <p>Click the CHUPAENG signup link and create your account.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="step-number">02</span>
+            <h3>Use the code</h3>
+            <p>Enter promo code <strong>CHUPAENG</strong> during signup or promo entry.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="step-number">03</span>
+            <h3>Join the stream</h3>
+            <p>Follow the stream for updates, rewards, clips, and community events.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head center reveal">
+          <p class="eyebrow">WHY JOIN</p>
+          <h2>Better than a normal link page</h2>
+        </div>
+
+        <div class="features">
+          <article class="card reveal">
+            <h3>Giveaways</h3>
+            <p>Promote prizes, community events, and weekly rewards.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Live Stream</h3>
+            <p>Send viewers directly to Kick with one click.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Social Hub</h3>
+            <p>Connect Facebook, TikTok, YouTube, Instagram, and Discord.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Fast Website</h3>
+            <p>Works with GitHub, Netlify, and simple static hosting.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="socials">
+        <div class="section-head center reveal">
+          <p class="eyebrow">SOCIALS</p>
+          <h2>Follow everywhere</h2>
+          <p>Use this section as the main hub for all CHUPAENG platforms.</p>
+        </div>
+
+        <div class="socials reveal">
+          <a href="https://kick.com/CHUPAENG" target="_blank" rel="noopener noreferrer">Kick</a>
+          <a href="https://discord.com" target="_blank" rel="noopener noreferrer">Discord</a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.facebook.com/profile.php?id=100092376301513" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="section-head center reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common questions</h2>
+        </div>
+
+        <div class="faq reveal">
+          <details>
+            <summary>What code should I use?</summary>
+            <p>Use promo code <strong>CHUPAENG</strong>.</p>
+          </details>
+
+          <details>
+            <summary>Where do I watch the stream?</summary>
+            <p>You can watch live at kick.com/CHUPAENG.</p>
+          </details>
+
+          <details>
+            <summary>How do I qualify for giveaways?</summary>
+            <p>Follow the stream and check the current giveaway rules. Eligibility may depend on the event.</p>
+          </details>
+
+          <details>
+            <summary>Does this work on Netlify?</summary>
+            <p>Yes. Upload this as your index.html file, or push it to GitHub and connect the repo to Netlify.</p>
+          </details>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>
+        <h3>CHUPAENG</h3>
+        <p>Gaming streams, rewards, and community updates in one clean landing page.</p>
+      </div>
+
+      <div>
+        <h4>Promo Code</h4>
+        <p>Stake code: <strong>CHUPAENG</strong></p>
+        <p>$7 reload + 3.5% rakeback for eligible users.</p>
+      </div>
+
+      <div>
+        <h4>Disclaimer</h4>
+        <p>18+ only. Play responsibly. Gambling can be addictive. Replace this with your official partner terms and eligibility rules.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <a class="floating-code" href="https://stake.com/?c=chupaeng" target="_blank" rel="noopener noreferrer">
+    Use Code CHUPAENG
+  </a>
+
+  <div id="toast">Promo code copied!</div>
+
+  <script>
+    function copyCode() {
+      const code = document.getElementById("promoCode").innerText;
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(showToast);
+      } else {
+        const tempInput = document.createElement("input");
+        tempInput.value = code;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        showToast();
+      }
+    }
+
+    function showToast() {
+      const toast = document.getElementById("toast");
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 1500);
+    }
+
+    function trackClick(name) {
+      console.log("Clicked:", name);
+    }
+
+    const competitionEndDate = new Date("2026-12-31T23:59:59").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = competitionEndDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      document.getElementById("days").innerText = String(days).padStart(2, "0");
+      document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+      document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
